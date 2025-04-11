@@ -62,7 +62,7 @@ def get_video_dataset(nsamples, seed, seqlen, tokenizer, data_path, category="vi
         
 
         input_text = example.get('input', '')
-        output_text = example.get('output', '').strip()  # 去除多余的换行符和空白
+        output_text = example.get('output', '').strip()  
         
 
         combined_text = f"{input_text} The above contents are ${category} that users have liked before and are very important for predicting the ${category} that user will like. Based on the previous content, predict the next ${category} that the user will like: {output_text}"
@@ -185,7 +185,6 @@ def get_attn_top_indices(rec_model, tokenizer, args, device):
     # o_layer_idx = 0
 
     for name, module in rec_model.model.named_modules():
-        # 根据模块名匹配 q_proj/k_proj/v_proj/o_proj
         if "q_proj" in name:
             module.register_forward_hook(rec_make_q_proj_hook(q_layer_idx))
             q_layer_idx += 1
@@ -237,7 +236,7 @@ def main():
       
                 top_result = module_output.topk(save_top_nums, dim=-1)
                 token_10_values = top_result.values
-                token_10_indices = top_result.indices  # 形状为 [batch_size, seq_len, 2432]
+                token_10_indices = top_result.indices  
 
                
                 flattened_indices = token_10_indices.view(-1).cpu().detach().numpy()
