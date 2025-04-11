@@ -14,7 +14,7 @@ temperature=1.0
 
 
 wandb_project="llm-distill"   
-name="wanda_name"  
+name="wandb_name"  
 notes="notes"  
 
 echo teacher_model: ${teacher_model}
