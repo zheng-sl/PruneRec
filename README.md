@@ -15,15 +15,15 @@ After pruning, we evaluate the model using BigRec's evaluation code.
 
 1. get pruning head list
     ```bash get_prune_head_list.sh```
-2. get embedding score
-    ```bash ./prune/head/generate_embedding_scores.sh```
-3. pruning head and embedding layer
+3. get embedding score
+   ```bash ./prune/head/generate_embedding_scores.sh```
+5. pruning head and embedding layer
     ``` bash ./prune/head/prune_head.sh ```
-4. pruning mlp layer
+6. pruning mlp layer
    ``` bash ./prune/mlp_attn/mlp_attn_run.sh ```
-5. pruning layer
+7. pruning layer
    ``` bash ./prune/layer/layer_seqrch.sh ```
-6. recovery
+8. recovery
    ``` bash ./distill/kd.sh ```
 
 
