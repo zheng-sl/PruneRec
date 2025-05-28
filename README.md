@@ -11,7 +11,7 @@ Our code consists of the following steps:
 - Get a sparse matrix for the embedding layer to align it with the MHA layer, prune heads and the embedding layer, and then recover via distillation.
 - Obtain a sparse matrix for the MLP layer based on the importance of the intermediate dimensions， prune the MLP layer, and recover through distillation.
 - Determine layers to prune based on the PPL metric, prune layers, and recover using distillation.
-After pruning, we evaluate the model using BigRec's evaluation code.
+  we finetune LLM and evaluate the pruned model using BigRec's evaluation code.
 
 1. get pruning head list
     ```bash get_prune_head_list.sh```
